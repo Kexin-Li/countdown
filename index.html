@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Countdown</title>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Pacifico" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="countdown">
+<header>
+  <h1 class="logo">HOLY CUTE COUNTDOWN</h1>
+</header>
+<div class="display">
+  <div class="time">
+    <div>
+      <h1 class="days"></h1>
+      <p>days</p>
+    </div>
+    <div>
+      <h1 class="hours"></h1>
+      <p>hours</p>
+    </div>
+    <div>
+      <h1 class="minutes"></h1>
+      <p>minutes</p>
+    </div>
+    <div>
+      <h1 class="seconds"></h1>
+      <p>seconds</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// Set the date we're counting down to
+const countDownDate = new Date("June 1, 2019 00:00:00").getTime();
+const time = document.querySelector(".time");
+const displayDays = document.querySelector(".time .days");
+const displayHours = document.querySelector(".time .hours");
+const displayMinutes = document.querySelector(".time .minutes");
+const displaySeconds = document.querySelector(".time .seconds");
+
+// Update the count down every 1 second
+let countdown = setInterval(() => {
+  // Get todays date and time
+  let now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  let distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  // document.querySelector(".time").innerHTML = days + "  " + hours + "  "
+  // + minutes + "  " + seconds;
+  days = `${days  < 10 ? '0' : ''}${days}`;
+  hours = `${hours < 10 ? '0' : ''}${hours}`;
+  minutes = `${minutes < 10 ? '0' : ''}${minutes}`;
+  seconds = `${seconds < 10 ? '0' : ''}${seconds}`;
+
+  displayDays.innerHTML = days;
+  displayHours.innerHTML = hours;
+  displayMinutes.innerHTML = minutes;
+  displaySeconds.innerHTML = seconds;
+
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(countdown);
+    time.innerHTML = "时间到啦！";
+    document.querySelector(".unit").innerHTML = " ";
+  }
+}, 1000);
+</script>
+</body>
+</html>
