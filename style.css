@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
-  background: #0023fc;
+  background: #3d55ee;
   height: 100%;
 }
 
@@ -54,5 +54,5 @@ header .logo {
 }
 
 .display .time div {
-  margin-right: 40px;
+  padding: 20px;
 }
