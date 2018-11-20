@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
-  background: #3d55ee;
+  background: #024640;
   height: 100%;
 }
 
@@ -41,7 +41,13 @@ header .logo {
 .display h1 {
   font-size: 60px;
   font-family: 'Pacifico';
-  margin-bottom: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 760px) {
+  .display h1 {
+    font-size: 40px;
+  }
 }
 
 .display p {
@@ -54,5 +60,5 @@ header .logo {
 }
 
 .display .time div {
-  padding: 20px;
+  margin: 15px;
 }
